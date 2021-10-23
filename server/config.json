@@ -1,0 +1,26 @@
+{
+    "installPath": "/home/admin/minecraft",
+    "javaPath": "/home/admin/java",
+    "activeInstanceId": "forge-1.16.5",
+    "screenName": "mcserver",
+    "instances": {
+        "vanilla-latest": {
+            "version": "latest",
+            "world": null,
+            "forge": true,
+            "command": "java -Xmx2048M -Xms2048M -jar server.jar nogui"
+        },
+        "vanilla-1.16.5": {
+            "version": "1.16.5",
+            "world": null,
+            "forge": true,
+            "command": "java -Xmx2048M -Xms2048M -jar server.jar nogui"
+        },
+        "forge-1.16.5": {
+            "version": "1.16.5",
+            "world": null,
+            "forge": true,
+            "command": "java -Xmx4G -Xms4G -jar minecraft_server.1.16.5.jar nogui"
+        }
+    }
+}
