@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd ${BASH_SOURCE%%/*}
+cd %(instancePath)s
 screen -dmS %(screenName)s bash -c ./start.sh

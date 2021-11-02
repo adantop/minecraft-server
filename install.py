@@ -97,14 +97,14 @@ def post_install(dest_dir: str, screen_name: str, command: str, java_home: str):
         template=os.path.join(templates, "screen.sh"),
         dest=os.path.join(dest_dir, "screen.sh"),
         mode=0o744,
-        kwargs={"screenName": screen_name})
+        kwargs={"instancePath": dest_dir, "screenName": screen_name})
     
     # Add start script
     make_file(
         template=os.path.join(templates, "start.sh"),
         dest=os.path.join(dest_dir, "start.sh"),
         mode=0o744,
-        kwargs={"command": command, "javaHome": java_home})
+        kwargs={"instancePath": dest_dir, "command": command, "javaHome": java_home})
 
 
 def make_file(template: str, dest: str, mode: int, kwargs: dict):
@@ -132,9 +132,9 @@ def main():
         install_server(server=ins.server, dest_dir=ins_path)
 
     post_install(
-        dest=ins_path,
-        screen_name=config["screenName"],
-        command=instance["command"],
+        dest_dir=ins_path,
+        screen_name=ctx["screenName"],
+        command=ins["command"],
         java_home=java_home)
 
 
