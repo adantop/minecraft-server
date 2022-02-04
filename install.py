@@ -4,7 +4,6 @@
 import os
 import sys
 import ssl
-import json
 import shutil
 import hashlib
 import tempfile
