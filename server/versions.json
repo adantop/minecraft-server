@@ -1,0 +1,38 @@
+{
+    "latest": {
+        "server": {
+            "src": "https://launcher.mojang.com/v1/objects/a16d67e5807f57fc4e550299cf20226194497dc2/server.jar",
+            "sha": "e8c211b41317a9f5a780c98a89592ecb72eb39a6e475d4ac9657e5bc9ffaf55f",
+            "filename": "server.jar"
+        },
+        "java": {
+            "name": "jdk-17",
+            "src": "https://download.java.net/java/GA/jdk17/0d483333a00540d886896bac774ff48b/35/GPL/openjdk-17_linux-x64_bin.tar.gz",
+            "sha": "aef49cc7aa606de2044302e757fa94c8e144818e93487081c4fd319ca858134b",
+            "filename": "openjdk-17_linux-x64_bin.tar.gz"
+        },
+        "forge": {
+            "src": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.17.1-37.0.103/forge-1.17.1-37.0.103-installer.jar",
+            "sha": "676f02f690ec143b2d11cbca3fa12e267fef024c469bc132028978ea7ecbe285",
+            "filename": "forge-1.17.1-37.0.103-installer.jar"
+        }
+    },
+    "1.16.5": {
+        "server": {
+            "src": "https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar",
+            "sha": "58f329c7d2696526f948470aa6fd0b45545039b64cb75015e64c12194b373da6",
+            "filename": "server.jar"
+        },
+        "java": {
+            "name": "jdk-15.0.2",
+            "src": "https://download.java.net/java/GA/jdk15.0.2/0d1cfde4252546c6931946de8db48ee2/7/GPL/openjdk-15.0.2_linux-x64_bin.tar.gz",
+            "sha": "91ac6fc353b6bf39d995572b700e37a20e119a87034eeb939a6f24356fbcd207",
+            "filename": "openjdk-15.0.2_linux-x64_bin.tar.gz"
+        },
+        "forge": {
+            "src": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.2.0/forge-1.16.5-36.2.0-installer.jar",
+            "sha": "f982aeebd0671bf7c8fb5ed6310244ffe019564fd0f52521837f559deb62c6c2",
+            "filename": "forge-1.16.5-36.2.0-installer.jar"
+        }
+    }
+}

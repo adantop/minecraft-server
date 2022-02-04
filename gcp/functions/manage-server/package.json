@@ -1,0 +1,10 @@
+{
+  "name": "manage-server",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@google-cloud/compute": "^2.6.0"
+  }
+}
