@@ -1,0 +1,41 @@
+{
+    "latest": {},
+    "1.16.5": {
+        "iceandfire": {
+            "src": "https://www.curseforge.com/minecraft/mc-mods/ice-and-fire-dragons/download/3441117/file",
+            "sha": "ad482ed3c6538250b55946d68658c67b4f8f53ca16c5e3291986b977c39c1198",
+            "filename": "iceandfire-2.1.9-1.16.5.jar",
+            "forge": "forge-1.16.5-36.2.0"
+        },
+        "citadel": {
+            "src": "https://www.curseforge.com/minecraft/mc-mods/citadel/download/3441028/file",
+            "sha": "4c78a18f309aa9895ff6ef70fc3140c436c729fa84c832770ec30970daaab88a",
+            "filename": "citadel-1.8.1-1.16.5.jar",
+            "forge": "forge-1.16.5-36.2.0"
+        },
+        "twilightforest": {
+            "src": "https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest/download/3575220/file",
+            "sha": "85c53f5332d54ff2890083764db8a61cb5c507638959a17a4769d73ba19006ad",
+            "filename": "twilightforest-1.16.5-4.0.870-universal.jar",
+            "forge": "forge-1.16.5-36.2.0"
+        },
+        "minecolonies": {
+            "src": "https://www.curseforge.com/minecraft/mc-mods/minecolonies/download/3567548/file",
+            "sha": "85c53f5332d54ff2890083764db8a61cb5c507638959a17a4769d73ba19006ad",
+            "filename": "minecolonies-1.16.5-1.0.309-RELEASE.jar",
+            "forge": "forge-1.16.5-36.2.20"
+        },
+        "structurize": {
+            "src": "https://www.curseforge.com/minecraft/mc-mods/structurize/download/3620732/file",
+            "sha": "2eff0d4d83528148c14ba94e16f777ba84e95aa0d450a07fbd7c3e379a80990a",
+            "filename": "structurize-1.16.5-1.0.339-ALPHA.jar",
+            "forge": "forge-1.16.5-36.2.20"
+        },
+        "biomesoplenty": {
+            "src": "https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty/download/3360574/file",
+            "sha": "3c68980fd317febca7aa922848dfb97c5e8db3cd2b0f54b2bd2e195f3afe6ba0",
+            "filename": "BiomesOPlenty-1.16.5-13.1.0.477-universal.jar",
+            "forge": "forge-1.16.5-36.2.20"
+        }
+    }
+}

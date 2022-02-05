@@ -1,0 +1,12 @@
+{
+    "forge-1.16.5-36.2.20": {
+        "src": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.2.20/forge-1.16.5-36.2.20-installer.jar",
+        "sha": "68755b4773bd63386c04c854723dc57f64a8964c8d81c781989967b9081b024d",
+        "filename": "forge-1.16.5-36.2.20-installer.jar"
+    },
+    "forge-1.16.5-36.2.0": {
+        "src": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.2.0/forge-1.16.5-36.2.0-installer.jar",
+        "sha": "f982aeebd0671bf7c8fb5ed6310244ffe019564fd0f52521837f559deb62c6c2",
+        "filename": "forge-1.16.5-36.2.0-installer.jar"
+    }
+}

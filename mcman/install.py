@@ -1,8 +1,8 @@
 #!/bin/env python3
-
+# Java releases: https://jdk.java.net/archive/
+# Minecraft releases: https://mcversions.net/
 
 import os
-import sys
 import ssl
 import shutil
 import hashlib
@@ -10,10 +10,7 @@ import tempfile
 import subprocess
 import urllib.request
 from typing import Optional, List
-from context import instance, context
-from context import Java, RemoteFile
-# Java releases: https://jdk.java.net/archive/
-# Minecraft releases: https://mcversions.net/
+from .context import Java, RemoteFile
 
 
 DIRNAME = os.path.abspath(os.path.dirname(__file__))
@@ -43,7 +40,18 @@ def download_file(url: str, filename: str, sha: Optional[str]):
     assert sha256.hexdigest() == sha, "Download failed"
 
 
-def install_java(java: Java, dest_dir: str):
+def make_file(template: str, dest: str, mode: int, template_values: dict):
+
+    with open(template, "r") as o:
+        template_string = o.read()
+
+    with open(dest, "w") as d:
+        d.write(template_string % template_values)
+
+    os.chmod(dest, mode)
+
+
+def java(java: Java, dest_dir: str):
     if os.path.isdir(os.path.join(dest_dir, java.name)):
         return
     
@@ -54,8 +62,8 @@ def install_java(java: Java, dest_dir: str):
         shutil.unpack_archive(download_path, dest_dir)
 
 
-def install_server(server: RemoteFile, dest_dir: str):
-    dest_file = os.path.join(dest, server.filename)
+def server(server: RemoteFile, dest_dir: str):
+    dest_file = os.path.join(dest_dir, server.filename)
 
     if os.path.isfile(dest_file):
         return
@@ -64,7 +72,7 @@ def install_server(server: RemoteFile, dest_dir: str):
     download_file(server.src, dest_file, server.sha)
 
 
-def install_forge(forge: RemoteFile, dest_dir: str, java_home: str):
+def forge(forge: RemoteFile, dest_dir: str, java_home: str):
     os.makedirs(dest_dir, exist_ok=True)
     os.chdir(dest_dir)
     dest_file = os.path.join(dest_dir, forge.filename)
@@ -77,7 +85,7 @@ def install_forge(forge: RemoteFile, dest_dir: str, java_home: str):
     os.chdir(DIRNAME)
 
 
-def install_mods(mods: List[RemoteFile], dest_dir:str):
+def mods(mods: List[RemoteFile], dest_dir:str):
     os.makedirs(dest_dir, exist_ok=True)
     
     for mod in mods:
@@ -96,46 +104,13 @@ def post_install(dest_dir: str, screen_name: str, command: str, java_home: str):
         template=os.path.join(templates, "screen.sh"),
         dest=os.path.join(dest_dir, "screen.sh"),
         mode=0o744,
-        kwargs={"instancePath": dest_dir, "screenName": screen_name})
+        template_values={"instancePath": dest_dir, "screenName": screen_name})
     
     # Add start script
     make_file(
         template=os.path.join(templates, "start.sh"),
         dest=os.path.join(dest_dir, "start.sh"),
         mode=0o744,
-        kwargs={"instancePath": dest_dir, "command": command, "javaHome": java_home})
-
-
-def make_file(template: str, dest: str, mode: int, kwargs: dict):
-
-    with open(template, "r") as o:
-        template_string = o.read()
-    with open(dest, "w") as d:
-        d.write(template_string % kwargs)
-    os.chmod(dest, mode)
-
-
-def main():
-    ctx = context()
-    instance_name = sys.argv[1] if len(sys.argv) == 2 else ctx.active_instance
-    ins = instance(instance_name)
-    ins_path = os.path.join(ctx.install_path, instance_name)
-
-    java_home = os.path.join(ctx.java_path, ins.java.name, "bin")
-    install_java(java=ins.java, dest_dir=ctx.java_path)
+        template_values={"instancePath": dest_dir, "command": command, "javaHome": java_home})
     
-    if ins.forge:
-        install_forge(forge=ins.forge, dest_dir=ins_path, java_home=java_home)
-        install_mods(mods=ins.mods, dest_dir=os.path.join(ins_path, "mods"))
-    else:
-        install_server(server=ins.server, dest_dir=ins_path)
-
-    post_install(
-        dest_dir=ins_path,
-        screen_name=ctx["screenName"],
-        command=ins["command"],
-        java_home=java_home)
-
-
-if __name__ == "__main__":
-    main()
+    #TODO: Add the screen.sh script to the location

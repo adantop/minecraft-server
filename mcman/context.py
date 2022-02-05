@@ -58,7 +58,7 @@ def context():
     return ctx
 
 
-def instance(name: str) -> Instance:
+def get_instance(name: str) -> Instance:
     ctx = context()
     versions = load_json("versions.json")
     mod_versions = load_json("mods.json")
